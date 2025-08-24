@@ -56,6 +56,20 @@ app.use('/api/users', userRoutes);
 app.use('/api/community', communityRoutes);
 
 // Serve static files in production
+// if (process.env.NODE_ENV === 'production') {
+//   // Serve static files from the React app
+//   app.use(express.static(path.join(__dirname, '../dist')));
+
+//   // Handle React routing, return all requests to React app
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../dist/index.html'));
+//   });
+// } else {
+//   // Development - redirect root to API message
+//   app.get('/', (req, res) => {
+//     res.json({ message: 'Green E-commerce API is running' });
+//   });
+// }
 if (process.env.NODE_ENV === 'production') {
   // Serve static files from the React app
   app.use(express.static(path.join(__dirname, '../dist')));
